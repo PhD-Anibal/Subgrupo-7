@@ -361,7 +361,7 @@ void converterMassa(){
 
 // Conversor de energia - Giltean Tavares
 
-void converter_Energia() {
+void converterEnergia() {
     int opcao;
     double joules, calorias;
 
@@ -543,7 +543,11 @@ int main() {
 
     return 0;
                 break;
-            case 10:
+	    case 10:
+                printf("Conversor de Energia\n");
+                converterEnergia();
+		break;
+            case 11:
                 printf("Saindo...\n");
                 return 0;
                 break;
