@@ -387,7 +387,75 @@ void converter_Energia() {
 
     return 0;
 }
+//Conversor de Unidade de Armazenamento de Dados - Andressa Peixoto (https://github.com/apnonato)
 
+void converterTamanhoDados(double size, char unit) {
+    // Tabela de conversão
+    const double KILOBYTE = 1024;
+    const double MEGABYTE = 1024 * KILOBYTE;
+    const double GIGABYTE = 1024 * MEGABYTE;
+    const double TERABYTE = 1024 * GIGABYTE;
+
+    // Conversão de acordo com a unidade
+    switch (unit) {
+        case 'b': // Bits
+            printf("Bits: %.0f\n", size);
+            printf("Bytes: %.2f\n", size / 8);
+            printf("Kilobytes: %.2f\n", size / (8 * KILOBYTE));
+            printf("Megabytes: %.2f\n", size / (8 * MEGABYTE));
+            printf("Gigabytes: %.2f\n", size / (8 * GIGABYTE));
+            printf("Terabytes: %.2f\n", size / (8 * TERABYTE));
+            break;
+
+        case 'B': // Bytes
+            printf("Bytes: %.0f\n", size);
+            printf("Bits: %.0f\n", size * 8);
+            printf("Kilobytes: %.2f\n", size / KILOBYTE);
+            printf("Megabytes: %.2f\n", size / MEGABYTE);
+            printf("Gigabytes: %.2f\n", size / GIGABYTE);
+            printf("Terabytes: %.2f\n", size / TERABYTE);
+            break;
+
+        case 'K': // Kilobytes
+            printf("Kilobytes: %.2f\n", size);
+            printf("Bytes: %.2f\n", size * KILOBYTE);
+            printf("Bits: %.0f\n", size * KILOBYTE * 8);
+            printf("Megabytes: %.2f\n", size / KILOBYTE);
+            printf("Gigabytes: %.2f\n", size / MEGABYTE);
+            printf("Terabytes: %.2f\n", size / GIGABYTE);
+            break;
+
+        case 'M': // Megabytes
+            printf("Megabytes: %.2f\n", size);
+            printf("Kilobytes: %.2f\n", size * KILOBYTE);
+            printf("Bytes: %.2f\n", size * MEGABYTE);
+            printf("Bits: %.0f\n", size * MEGABYTE * 8);
+            printf("Gigabytes: %.2f\n", size / KILOBYTE);
+            printf("Terabytes: %.2f\n", size / MEGABYTE);
+            break;
+
+        case 'G': // Gigabytes
+            printf("Gigabytes: %.2f\n", size);
+            printf("Megabytes: %.2f\n", size * KILOBYTE);
+            printf("Kilobytes: %.2f\n", size * MEGABYTE);
+            printf("Bytes: %.2f\n", size * GIGABYTE);
+            printf("Bits: %.0f\n", size * GIGABYTE * 8);
+            printf("Terabytes: %.2f\n", size / KILOBYTE);
+            break;
+
+        case 'T': // Terabytes
+            printf("Terabytes: %.2f\n", size);
+            printf("Gigabytes: %.2f\n", size * KILOBYTE);
+            printf("Megabytes: %.2f\n", size * MEGABYTE);
+            printf("Kilobytes: %.2f\n", size * GIGABYTE);
+            printf("Bytes: %.2f\n", size * TERABYTE);
+            printf("Bits: %.0f\n", size * TERABYTE * 8);
+            break;
+
+        default:
+            printf("Unidade inválida! Use 'b' para bits, 'B' para bytes, 'K' para kilobytes, 'M' para megabytes, 'G' para gigabytes ou 'T' para terabytes.\n");
+    }
+}
 
 // interface - Thiago Sousa (github.com/thiagosousa81)
 int main() {
@@ -463,6 +531,17 @@ int main() {
                 break;
             case 9:
                 printf("Conversor de unidades de armazenamento\n");
+		    
+    		double size;
+    		char unit;
+
+   		printf("Digite o tamanho (quantidade) e a unidade (b, B, K, M, G, T): ");
+    		scanf("%lf %c", &size, &unit);
+
+    		printf("\nConversão de %.2f %c:\n", size, unit);
+    		converterTamanhoDados(size, unit);
+
+    return 0;
                 break;
             case 10:
                 printf("Saindo...\n");
