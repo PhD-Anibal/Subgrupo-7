@@ -171,8 +171,8 @@ void converterVelocidade(int opcao, float valor) {
 
         default:
             printf("Opção inválida!\n");
+            while (getchar() != '\n');
     }
-    
 }
 
 //6 - Conversor de potência - Lucas Ribeiro (github.com/lucasribeiro32)
@@ -384,8 +384,6 @@ void converterEnergia() {
     } else {
         printf("Opção inválida.\n");
     }
-
-    return 0;
 }
 //Conversor de Unidade de Armazenamento de Dados - Andressa Peixoto (https://github.com/apnonato)
 
@@ -463,7 +461,7 @@ int main() {
         float valor;
         int op;
         printf("Escolha uma das opções de conversor:\n");
-        printf("1 - Comprimento\n2 - Massa\n3 - Volume\n4 - Temperatura\n5 - Velocidade\n6 - Potência\n7 - Área\n8 - Tempo\n9 - Armazenamento\n10 - Sair\n");
+        printf("1 - Comprimento\n2 - Massa\n3 - Volume\n4 - Temperatura\n5 - Velocidade\n6 - Potência\n7 - Área\n8 - Tempo\n9 - Armazenamento\n10 - Conversor de energia\n0 - Sair\n");
         scanf("%d", &op);
         
         switch (op)
@@ -547,12 +545,14 @@ int main() {
                 printf("Conversor de Energia\n");
                 converterEnergia();
 		break;
-            case 11:
+            case 0:
                 printf("Saindo...\n");
                 return 0;
                 break;
             default:
                 printf("Opção não definida!\n");
-        }        
+                while (getchar() != '\n');
+                continue;                
+        }       
     }    
 }
