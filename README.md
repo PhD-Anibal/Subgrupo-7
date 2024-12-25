@@ -68,8 +68,8 @@ Ao executar o programa, o usuário será apresentado com um menu de opções num
     7 - Área 
     8 - Tempo 
     9 - Armazenamento 
-    10 - Bônus
-    11 - Sair
+    10 - Energia
+    0 - Sair
 
     Digite a opção desejada: 4
     Conversor de unidades de temperatura
